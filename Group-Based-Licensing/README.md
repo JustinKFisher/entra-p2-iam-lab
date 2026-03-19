@@ -29,7 +29,7 @@ Instead of assigning licenses individually, licenses are assigned to a group, an
 
 Users were initially assigned licenses individually.
 
-![Direct License](images/group_licensing_01.png)
+![Direct License](group_licensing_01.png)
 
 ---
 
@@ -37,7 +37,7 @@ Users were initially assigned licenses individually.
 
 Removed the Microsoft Entra ID P2 license from the user.
 
-![License Removed](images/group_licensing_02.png)
+![License Removed](group_licensing_02.png)
 
 This prepares the environment for group-based licensing.
 
@@ -47,7 +47,7 @@ This prepares the environment for group-based licensing.
 
 Assigned Microsoft Entra ID P2 license to the **Offense** security group.
 
-![Group License Assignment](images/group_licensing_03.png)
+![Group License Assignment](group_licensing_03.png)
 
  All members of this group will now inherit the license.
 
@@ -60,7 +60,7 @@ User now shows:
 * License is **inherited from group**
 * Cannot be modified directly at user level
 
-![Inherited License](images/group_licensing_04.png)
+![Inherited License](group_licensing_04.png)
 
  Confirms group-based licensing is working.
 
@@ -70,7 +70,7 @@ User now shows:
 
 Created a new user and assigned them to the **Offense** group during creation.
 
-![New User Creation](images/group_licensing_05.png)
+![New User Creation](group_licensing_05.png)
 
 ---
 
@@ -78,7 +78,7 @@ Created a new user and assigned them to the **Offense** group during creation.
 
 Confirmed the new user is part of the Offense group.
 
-![Group Membership](images/group_licensing_06.png)
+![Group Membership](group_licensing_06.png)
 
 ---
 
@@ -86,7 +86,7 @@ Confirmed the new user is part of the Offense group.
 
 New user automatically receives the Microsoft Entra ID P2 license via group membership.
 
-![New User License](images/group_licensing_07.png)
+![New User License](group_licensing_07.png)
 
 ---
 

@@ -1,6 +1,19 @@
 # entra-p2-iam-lab
 
 Enterprise Microsoft Entra ID lab demonstrating Privileged Identity Management (PIM), Conditional Access, Identity Protection, Governance, and monitoring capabilities using Microsoft Entra ID P2 features.
+---
+## Naming Convention Update
+
+This lab originally used real NFL player names (e.g., Randy Moss, Larry Allen) for user accounts.
+
+To better reflect enterprise IAM best practices, all identities were standardized to a role-based naming convention:
+
+- QB1, WR1, OL1, etc.
+
+This change improves:
+- Scalability
+- Consistency
+- Role-based access modeling
 
 ---
 

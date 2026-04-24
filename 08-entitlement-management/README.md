@@ -1,5 +1,7 @@
-# 🏈 SC-300 Lab: Entitlement Management & Access Packages
+# 🏈 Entitlement Management & Access Packages
 ## Microsoft Entra ID — Identity Governance
+
+**Cert Target:** SC-300 — Microsoft Identity and Access Administrator
 
 ---
 
@@ -10,8 +12,6 @@ This lab demonstrates **Entitlement Management** in Microsoft Entra ID using Acc
 The lab uses an NFL-themed simulation to model a real-world Zero Trust governance scenario:
 
 > A **Defense group user (LB1)** requests temporary access to **Offense group resources** during game prep week. The request requires business justification, goes through an approval workflow, expires automatically after 7 days, and is subject to weekly access reviews.
-
-This mirrors real enterprise IAM scenarios where cross-team or cross-department access must be governed, time-limited, and auditable.
 
 ---
 
@@ -48,38 +48,54 @@ JFLabs Entra Tenant
 
 
 
-
 ---
 
 ## Lab Steps
 
 ### Step 1 — Create a Catalog
+
 Created "Lab Test Catalog" as the container for lab resources and access packages.
 
-📸 `em_01-Catalogs.Empty.png` — Empty catalogs blade before creation
-📸 `em_02-CreatedCatalog.png` — New catalog form filled out
-📸 `em_03-CatalogCreatedSuccessfully.png` — Catalog confirmed in list
+![Empty catalogs blade](../assets/screenshots/em_01-Catalogs.Empty.png)
+*Empty catalogs blade before creation*
+
+![New catalog form](../assets/screenshots/em_02-CreatedCatalog.png)
+*New catalog form filled out*
+
+![Catalog confirmed](../assets/screenshots/em_03-CatalogCreatedSuccessfully.png)
+*Catalog confirmed in list*
 
 ---
 
 ### Step 2 — Add Resource to Catalog
+
 Added the **Offense** security group as a resource inside the catalog.
 
-📸 `em_04-CatalogResourcesEmpty.png` — Empty resources tab
-📸 `em_05-AddingGrouptoCatalog.png` — Offense group selected
-📸 `em_06-resource-confirmed.png` — Offense group confirmed as catalog resource
+![Empty resources tab](../assets/screenshots/em_04-CatalogResourcesEmpty.png)
+*Empty resources tab before adding*
+
+![Offense group selected](../assets/screenshots/em_05-AddingGrouptoCatalog.png)
+*Offense group selected from available groups*
+
+![Resource confirmed](../assets/screenshots/em_06-resource-confirmed.png)
+*Offense group confirmed as catalog resource*
 
 ---
 
 ### Step 3 — Create Access Package
+
 Created "Lab Test Package" linked to Lab Test Catalog with Offense group assigned as Member role.
 
-📸 `em_07-NewAccesPackage.png` — Access package basics configured
-📸 `em_08-AccessPackageResource.png` — Offense group added as Member role
+![Access package basics](../assets/screenshots/em_07-NewAccesPackage.png)
+*Access package name, description, and catalog configured*
+
+![Resource role configured](../assets/screenshots/em_08-AccessPackageResource.png)
+*Offense group added as Member role*
 
 ---
 
 ### Step 4 — Configure Request Policy
+
 - Requestor scope: **Defense group users only**
 - Who can request: **Self + Admin**
 - Require approval: **Yes**
@@ -88,77 +104,108 @@ Created "Lab Test Package" linked to Lab Test Catalog with Offense group assigne
 - Require requestor justification: **Yes**
 - Require approver justification: **Yes**
 
-📸 `em_09-PolicyRequester-scope.png` — Defense group scoped as requestors
-📸 `em_10-policy-approval-settings.png` — Approval settings configured
+![Requestor scope](../assets/screenshots/em_09-PolicyRequester-scope.png)
+*Defense group scoped as the only eligible requestors*
+
+![Approval settings](../assets/screenshots/em_10-policy-approval-settings.png)
+*Approval settings — specific approver, 14-day deadline, justification required*
 
 ---
 
 ### Step 5 — Configure Requestor Information
+
 Added a required business justification question:
 > *"Why do you need access to the Offense group? Please provide business justification."*
 
-📸 `em_11-Requester-question.png` — Required justification question configured
+![Justification question](../assets/screenshots/em_11-Requester-question.png)
+*Required justification question configured*
 
 ---
 
 ### Step 6 — Configure Lifecycle & Access Reviews
+
 - Expiration: **7 days** — models game prep week access window
 - Access reviews: **Weekly**
 - Reviewer: **Justin Fisher**
 - Require reviewer justification: **Yes**
 
-📸 `em_12-Lifecycle-expiration.png` — 7-day expiration + weekly access reviews
+![Lifecycle configuration](../assets/screenshots/em_12-Lifecycle-expiration.png)
+*7-day expiration and weekly access reviews configured*
 
 ---
 
 ### Step 7 — Review & Create
+
 Reviewed full configuration summary before creating the package.
 
-📸 `em_13-review-create-page1.png` — Summary page 1
-📸 `em_14-review-create-page2.png` — Summary page 2
+![Review page 1](../assets/screenshots/em_13-review-create-page1.png)
+*Summary — basics, resource roles, and request policy*
+
+![Review page 2](../assets/screenshots/em_14-review-create-page2.png)
+*Summary — requestor information and lifecycle settings*
 
 ---
 
 ### Step 8 — Package Created
+
 Access package confirmed live with 1 enabled policy and Offense group resource.
 
-📸 `em_16-package-created-overview.png` — Package overview confirmed
+![Package overview](../assets/screenshots/em_16-package-created-overview.png)
+*Lab Test Package confirmed — 1 enabled policy, Offense group resource*
 
 ---
 
 ### Step 9 — End User Experience (LB1 — Defense user)
+
 Logged in as LB1 via the My Access portal. Located "Lab Test Package" and submitted a request with full business justification.
 
-**LB1's provided justification:**
+**LB1's justification:**
 > *"Preparing defensive scheme for this week's game — need to review Offense formations and play calls."*
 
 **Business justification:**
 > *"Game prep week — defensive group requires access to Offense playbook to prepare defensive assignments."*
 
-📸 `em_15-myaccess-portal-defense-user.png` — LB1 viewing available access packages
-📸 `em_17-request-panel-justification.png` — Justification submitted by LB1
+![My Access portal](../assets/screenshots/em_15-myaccess-portal-defense-user.png)
+*LB1 viewing available access packages in the My Access portal*
+
+![Request submitted](../assets/screenshots/em_17-request-panel-justification.png)
+*LB1 submitting request with business justification*
 
 ---
 
 ### Step 10 — Admin Approval Workflow
+
 Reviewed LB1's pending request in the admin center and My Access portal. Approved with justification.
 
 **Approver reason:**
 > *"Approved for game prep week — temporary access granted."*
 
-📸 `em_18-pending-request-admin.png` — LB1 request pending in admin center
-📸 `em_19-request-details-admin.png` — Full audit trail
-📸 `em_20-admin-pending-approval.png` — Admin My Access overview showing 1 pending action
-📸 `em_21-approvals-queue.png` — Approvals queue showing LB1 request
-📸 `em_22-approval-action.png` — Approval decision with reason submitted
-📸 `em_23-request-approved.png` — Request confirmed as Approved
+![Pending request admin](../assets/screenshots/em_18-pending-request-admin.png)
+*LB1 request pending in admin center*
+
+![Request details](../assets/screenshots/em_19-request-details-admin.png)
+*Full audit trail — justification, business reason, and approver visible*
+
+![Admin pending approval](../assets/screenshots/em_20-admin-pending-approval.png)
+*Admin My Access overview showing 1 pending action*
+
+![Approvals queue](../assets/screenshots/em_21-approvals-queue.png)
+*Approvals queue showing LB1's pending request*
+
+![Approval action](../assets/screenshots/em_22-approval-action.png)
+*Approval decision submitted with reason*
+
+![Request approved](../assets/screenshots/em_23-request-approved.png)
+*Request confirmed as Approved*
 
 ---
 
 ### Step 11 — Verify Group Membership
-Confirmed LB1 now appears as a member of the Offense group.
 
-📸 `em_24-lb1-offense-group-confirmed.png` — LB1 confirmed in Offense group members list
+Confirmed LB1 now appears as a member of the Offense group — proving the full end-to-end workflow succeeded.
+
+![LB1 in Offense group](../assets/screenshots/em_24-lb1-offense-group-confirmed.png)
+*LB1 confirmed as member of Offense group — end-to-end workflow complete*
 
 ---
 
@@ -194,4 +241,3 @@ Covers **Plan and Automate Identity Governance (25-30%)** section:
 - [Entitlement Management Overview — Microsoft Learn](https://learn.microsoft.com/en-us/entra/id-governance/entitlement-management-overview)
 - [Create an access package — Microsoft Learn](https://learn.microsoft.com/en-us/entra/id-governance/entitlement-management-access-package-create)
 - [My Access portal — Microsoft Learn](https://learn.microsoft.com/en-us/entra/id-governance/my-access-portal-overview)
-

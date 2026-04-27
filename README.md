@@ -42,6 +42,9 @@ Implemented a Just-In-Time (JIT) access model for the **User Administrator** rol
 - **04-identity-protection** – Risk-based controls
 - **05-governance** – Access reviews & lifecycle management
 - **06-monitoring-logs** – Audit & monitoring validation
+- **07-group-based-licensing** – Group-based license assignment
+- **08-entitlement-management** – Access packages, approval workflows & identity governance
+
 
 ---
 
